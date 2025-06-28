@@ -146,6 +146,8 @@ const Navbar = () => {
           {/* <Link to="#" className="block hover:text-yellow-300">Services</Link> */}
           <Link to="/contact" className="block hover:text-yellow-300">Contact</Link>
           {/* <Link to="/profile" className="block hover:text-yellow-300">Profile</Link> */}
+          {!login && <Link to="/signup" className="block hover:text-yellow-300">Signup</Link>}
+          {!login && <Link to="/login" className="block hover:text-yellow-300">Login</Link>}
         {login && (
   <button
     onClick={logoutUser}
