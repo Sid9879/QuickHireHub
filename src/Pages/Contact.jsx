@@ -18,17 +18,20 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(formData)
     try {
       const response = axios.post(`https://freelancing-backend-z0fy.onrender.com/api/auth/contact`, formData);
       if (response.status === 200) {
         toast.success('Message sent successfully!');
       }
+      setSubmitted(true);
+       setTimeout(() => {
+        setSubmitted(false);
+      }, 2000);
+    
     } catch (error) {
       console.log(error);
       toast.error('Failed to send message. Please try again later.'||error.res.data.message);
     }
-    setSubmitted(true);
     setFormData({ name: '', email: '', subject: '', message: '' });
   };
 
