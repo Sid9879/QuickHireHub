@@ -8,7 +8,7 @@ import { toast } from 'react-toastify';
 
 const ViewUserProfile = () => {
     const [userProfile, setUserProfile] = useState(null);
-    console.log(userProfile)
+    // console.log(userProfile)
     const [loading, setLoading] = useState(true); 
     const [error, setError] = useState(null); 
         const [value, setvalue] = useState(0);
@@ -114,14 +114,14 @@ const ViewUserProfile = () => {
                {userProfile.avgRating.toFixed(1)} <span className="ml-1 text-xl"> <Rate
   value={value}
   onChange={async (val) => {
-    console.log("User rated:", val);
+    // console.log("User rated:", val);
     setvalue(val);
     try {
       const apiUrl = `https://freelancing-backend-z0fy.onrender.com/api/users/rating/${userId}`;
       const response = await axios.put(apiUrl, { value: val }, {
         withCredentials: true,
       });
-      console.log("Rating submitted:", response.data);
+    //   console.log("Rating submitted:", response.data);
       if(response.data.success){
         fetchUserProfile();
          toast.success("Liked profile", {

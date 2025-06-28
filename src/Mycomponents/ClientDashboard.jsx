@@ -21,7 +21,7 @@ useEffect(()=>{
     const res = await axios.get(`https://freelancing-backend-z0fy.onrender.com/api/jobs/posted_jobs`,{
       withCredentials:true,
     })
-    console.log(res.data)
+    // console.log(res.data)
     setJobs(res.data)
   } catch (error) {
     console.log(error)
@@ -31,7 +31,7 @@ useEffect(()=>{
 },[])
 
   const handleRateChange = (value) => {
-    console.log("User rated:", value); // log to console
+    // console.log("User rated:", value); // log to console
     setRating(value); // update state
   };
   return (

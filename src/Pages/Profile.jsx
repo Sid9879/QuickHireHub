@@ -42,7 +42,7 @@ const Profile = () => {
 
     const [modalIsOpen, setModalIsOpen] = useState(false);
     const useData = useSelector((state) => state.user);
-    console.log(useData);
+    // console.log(useData);
     const [skills, setSkills] = useState([]);
     const [city, setCity] = useState('');
     const [pincode, setPincode] = useState('');
@@ -105,7 +105,7 @@ const Profile = () => {
                 payload,
                 { withCredentials: true }
             );
-            console.log(res.data);
+            // console.log(res.data);
             const updatedUser = res.data.updatedUser;
 
             if (res.data.success && updatedUser) {

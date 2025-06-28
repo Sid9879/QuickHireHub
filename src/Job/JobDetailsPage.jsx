@@ -27,7 +27,7 @@ export default function JobDetailsPage() {
     { withCredentials: true }
   );
 
-  console.log("Response:", response.data);
+  // console.log("Response:", response.data);
   
   if (response.data) {
     toast.success(response.data.message || "Successfully applied for the job!", {

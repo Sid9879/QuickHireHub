@@ -21,7 +21,7 @@ const ManageProjects = () => {
                 const res = await axios.get('https://freelancing-backend-z0fy.onrender.com/api/auth/getUser',{
                     withCredentials: true
                 });
-                console.log(res.data)
+                // console.log(res.data)
                 setProjects(res.data.user.projects || []);
             } catch (error) {
                 console.error('Error fetching projects:', error);

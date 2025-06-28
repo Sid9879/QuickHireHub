@@ -71,7 +71,7 @@ const ClientPosted = () => {
 
   const handleUpdateStatus = async (applicationId, newStatus, applicantId) => {
     setUpdatingStatusFor({ appId: applicationId, newStatus });
-    console.log(`Updating status for application ${applicationId} to ${newStatus} for applicant ${applicantId}`);
+    // console.log(`Updating status for application ${applicationId} to ${newStatus} for applicant ${applicantId}`);
     try {
       const apiUrl = `https://freelancing-backend-z0fy.onrender.com/api/jobs/update_application/${applicationId}/${applicantId}`; // 
       const response = await axios.patch(apiUrl, { status:newStatus }, {
@@ -103,7 +103,7 @@ const ClientPosted = () => {
   };
 
   const handleRemove = async(jobId)=>{
-    console.log(`Removing job ${jobId}`);
+    // console.log(`Removing job ${jobId}`);
     try {
       const apiUrl = `https://freelancing-backend-z0fy.onrender.com/api/jobs/removejob/${jobId}`;
     const response = await axios.delete(apiUrl,{

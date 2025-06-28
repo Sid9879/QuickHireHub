@@ -62,7 +62,7 @@ const Application = () => {
     });
     if (response.status >= 200 && response.status < 300) {
       fetchMyApplications()
-      console.log(`Application ${applicationId} removed successfully:`, response.data);
+      // console.log(`Application ${applicationId} removed successfully:`, response.data);
     }
   };
 

@@ -112,7 +112,7 @@ export default function UserProfile() {
         payload,
         { withCredentials: true }
       );
-      console.log(res.data);
+      // console.log(res.data);
       const updatedUser = res.data.updatedUser;
 
       if (res.data.success && updatedUser) {
