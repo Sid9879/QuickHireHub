@@ -20,8 +20,10 @@ QuickHireHub is a full-stack freelancing platform where users can register as **
 
 ### 🔐 General
 - Secure JWT-based Authentication
+- **Forgot Password** – Users can request a password reset link via their registered email
 - Role-based Access (Freelancer / Client)
 - Dynamic Profile Management for both user roles
+
 
 ### 👨‍🎓 Freelancer Features
 - 📂 Apply to Jobs
