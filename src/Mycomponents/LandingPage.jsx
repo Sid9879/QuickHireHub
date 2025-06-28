@@ -45,7 +45,7 @@ const LandingPage = () => {
       </div>
 
       <footer className="w-full text-center py-4 text-gray-600 border-t mt-16 mytheme">
-        &copy; 2025 Freelancer Marketplace | support@QuickHireHub.com | +91-9876543210
+        &copy; 2025 Freelancer Marketplace | quickhirehub143@gmail.com | +91-6307657545
       </footer>
 
       <style>
