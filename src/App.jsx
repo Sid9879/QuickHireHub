@@ -106,7 +106,9 @@ function App() {
   }/>
 
  <Route path="/choose-role" element={
-      <ChooseRole/>
+      <ProtectedRoute>
+        <ChooseRole />
+        </ProtectedRoute>
   }/>
 
 </Routes>
