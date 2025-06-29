@@ -29,6 +29,13 @@ const ChooseRole = () => {
     }
   };
 
+  useEffect(() => {
+  getUserProfile().then((user) => {
+    if (user?.role) navigate('/');
+  });
+}, []);
+
+
 
 
   return (
