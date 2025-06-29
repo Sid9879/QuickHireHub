@@ -1,12 +1,14 @@
 import React, { useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { loginUser } from '../store/userSlice';
 import { persistor } from '../store/store'; 
 
 const ChooseRole = () => {
   const navigate = useNavigate();
+  const userData = useSelector((state)=>state.user);
+  console.log(userData)
    const dispatch = useDispatch();
    const getUserProfile = async () => {
     try {
@@ -27,13 +29,14 @@ const ChooseRole = () => {
       { role },
       { withCredentials: true }
     );
-
+   
     const response = await axios.get(
       'https://freelancing-backend-z0fy.onrender.com/api/auth/getUser',
       { withCredentials: true }
     );
 
     const updatedUser = response.data.user;
+    console.log(updatedUser)
     dispatch(loginUser(updatedUser));
     persistor.flush().then(() => {
       console.log('Redux state synced to localStorage');

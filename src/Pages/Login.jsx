@@ -159,7 +159,7 @@ const Login = () => {
         </div>
 
         <p className="mt-4 text-center text-sm text-white">
-          Don't have an account? <Link className="text-white underline" to="/signup">Sign up</Link>
+          Don't have a google account? <Link className="text-white underline" to="/signup">Sign up</Link>
         </p>
 
         <div className="mt-6 text-center">
