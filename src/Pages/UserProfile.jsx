@@ -209,6 +209,7 @@ export default function UserProfile() {
             <div className="bottom">
               <div className="content">
                 <strong className="name">{userData.user?.name}</strong>
+                <strong className="name">{userData.user?.email}</strong>
                <strong className="about-me">Skills:-
     {userData.user?.skills && userData.user.skills.length > 0 ? userData.user.skills.join(', ') : 'No skills listed'}
 </strong>
