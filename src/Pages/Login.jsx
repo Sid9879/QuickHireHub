@@ -47,7 +47,19 @@ if(data.success){
   
 }
   }
-    
+    //google login
+  const submitGoogleform = async()=>{
+    try {
+      const googleResponse = await axios.post("https://freelancing-backend-z0fy.onrender.com/api/auth/google-login", {
+  profileObj: response.profileObj
+});
+console.log(googleResponse.data);
+toast.success("Google login successful!", { position: "top-center", theme: "dark" });
+    } catch (error) {
+      console.error("Google login failed:", error);
+      toast.error("Google login failed. Please try again.", { position: "top-center", theme: "dark" });
+    }
+  }
 
   const handleMouseMove = (e) => {
     const card = cardRef.current;
@@ -145,12 +157,13 @@ if(data.success){
         </div>
         <div className='flex justify-center items-center border-2 border-indigo-600 rounded-lg p-2 mt-4 text-white'>
             <img  width='50px' height='50px' src={google} alt="" />
-             <Link
-            to='#'
+             <button
+          onClick={submitGoogleform}
+            type="button"
             className="font-medium cursor-pointer"
           >
             Sign up using Google
-          </Link>
+          </button>
         </div>
 
         <p className='text-white mt-2'>Don't have a google account <Link className='border-b text-green-500' to='/signup'>Signup</Link></p>

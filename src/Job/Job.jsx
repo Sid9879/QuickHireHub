@@ -82,7 +82,7 @@ const Job = () => {
                     setError(`Error: ${err.response.data?.message || err.response.statusText}`);
                     console.error('Error fetching jobs (Axios error response):', err.response.status, err.response.data);
                 } else if (err.request) {
-                    setError('Network error: No response received from server. Please ensure your backend server is running on https://freelancing-backend-z0fy.onrender.com and is accessible.');
+                    setError('Network error: No response received from server.');
                     console.error('Error fetching jobs (Axios error request):', err.request);
                 } else {
                     setError(`An unexpected error occurred: ${err.message}`);
