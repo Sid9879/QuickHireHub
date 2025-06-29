@@ -33,7 +33,13 @@ const ChooseRole = () => {
     );
 
     const updatedUser = response.data.user;
-    dispatch(loginUser(updatedUser)); // this will include the new role
+    dispatch(loginUser(updatedUser));
+    const root = JSON.parse(localStorage.getItem('persist:root'));
+    if (root) {
+      root.user = JSON.stringify({ user: updatedUser, login: true });
+      localStorage.setItem('persist:root', JSON.stringify(root));
+    }
+
     navigate('/');
   } catch (err) {
     console.error('Failed to set role', err);

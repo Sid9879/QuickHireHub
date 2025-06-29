@@ -16,32 +16,18 @@ import Application from './Job/Application';
 import ClientDashboard from './Mycomponents/ClientDashboard';
 import ClientPosted from './Job/ClientPosted';
 import UserProfile from './Pages/UserProfile';
-import {useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import ProtectedRoute from './Mycomponents/ProtectedRoute ';
 import ViewUserProfile from './Layout/ViewUserProfile';
 import ForgetPassword from './Pages/ForgetPassword';
 import ManageProjects from './Pages/ManageProjects ';
 import ChooseRole from './Pages/ChooseRole';
-import { loginUser } from './store/userSlice';
 
 
 function App() {
 
   const userData = useSelector((state)=>state.user)
-  const dispatch = useDispatch();
 
-  useEffect(() => {
-    const persistedRoot = localStorage.getItem('persist:root');
-    if (persistedRoot) {
-      const parsedRoot = JSON.parse(persistedRoot);
-      if (parsedRoot.user) {
-        const parsedUser = JSON.parse(parsedRoot.user);
-        if (parsedUser?.user) {
-          dispatch(loginUser(parsedUser.user));
-        }
-      }
-    }
-  }, [dispatch]);
   
   return (
     <>
