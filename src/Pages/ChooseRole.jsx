@@ -22,7 +22,7 @@ const ChooseRole = () => {
   const handleSelectRole = async (role) => {
     try {
       await axios.post('https://freelancing-backend-z0fy.onrender.com/api/auth/set-role', { role }, { withCredentials: true });
-     await getUserProfile();
+      await getUserProfile();
       navigate('/');
     } catch (err) {
       console.error('Failed to set role', err);
