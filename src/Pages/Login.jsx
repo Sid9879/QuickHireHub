@@ -158,8 +158,8 @@ const Login = () => {
           />
         </div>
 
-        <p className="mt-4 text-center text-sm">
-          Don't have an account? <Link className="text-blue-300 underline" to="/signup">Sign up</Link>
+        <p className="mt-4 text-center text-sm text-white">
+          Don't have an account? <Link className="text-white underline" to="/signup">Sign up</Link>
         </p>
 
         <div className="mt-6 text-center">
