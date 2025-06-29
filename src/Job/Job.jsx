@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useCallback } from 'react'; // Import useRef and useCallback
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { toast } from 'react-toastify';
@@ -24,19 +24,14 @@ const Job = () => {
     const [jobsPerPage] = useState(9);
     const [totalPages, setTotalPages] = useState(1);
 
-   
     const [filterSkill, setFilterSkill] = useState('');
     const [filterTitle, setFilterTitle] = useState('');
 
-    
     const [debouncedFilterSkill, setDebouncedFilterSkill] = useState('');
     const [debouncedFilterTitle, setDebouncedFilterTitle] = useState('');
 
-   
     const [isFilterActive, setIsFilterActive] = useState(false);
-    
-  
-    
+
     const debounceTimeoutRef = useRef(null);
 
     useEffect(() => {
@@ -51,7 +46,6 @@ const Job = () => {
             params.append('page', currentPage);
             params.append('limit', jobsPerPage);
 
-            
             if (debouncedFilterSkill.trim()) {
                 params.append('skills', debouncedFilterSkill.toLowerCase().trim());
             }
@@ -99,11 +93,9 @@ const Job = () => {
         }
     }, [currentPage, jobsPerPage, debouncedFilterSkill, debouncedFilterTitle]);
 
-   
     useEffect(() => {
         fetchJobs();
-    }, [fetchJobs]); 
-
+    }, [fetchJobs]);
 
     const handleApply = async (jobId) => {
         const check = window.confirm("Are you sure you want to apply for this job?");
@@ -128,47 +120,42 @@ const Job = () => {
         }
     };
 
-   
     const handleSkillChange = (e) => {
         const value = e.target.value;
-        setFilterSkill(value); 
+        setFilterSkill(value);
 
         if (debounceTimeoutRef.current) {
             clearTimeout(debounceTimeoutRef.current);
         }
         debounceTimeoutRef.current = setTimeout(() => {
-            setDebouncedFilterSkill(value); 
-            setCurrentPage(1); 
+            setDebouncedFilterSkill(value);
+            setCurrentPage(1);
         }, 1000);
     };
 
-   
     const handleTitleChange = (e) => {
         const value = e.target.value;
-        setFilterTitle(value); 
+        setFilterTitle(value);
 
         if (debounceTimeoutRef.current) {
             clearTimeout(debounceTimeoutRef.current);
         }
         debounceTimeoutRef.current = setTimeout(() => {
             setDebouncedFilterTitle(value);
-            setCurrentPage(1); 
+            setCurrentPage(1);
         }, 1000);
     };
 
-   
     const handleSearchClick = () => {
-        
         setDebouncedFilterSkill(filterSkill);
         setDebouncedFilterTitle(filterTitle);
-        setCurrentPage(1); // Reset page to 1
+        setCurrentPage(1);
     };
 
-
     const handleClearFilters = () => {
-        setFilterSkill(''); 
+        setFilterSkill('');
         setFilterTitle('');
-        setDebouncedFilterSkill(''); 
+        setDebouncedFilterSkill('');
         setDebouncedFilterTitle('');
         setCurrentPage(1);
     };
@@ -209,7 +196,6 @@ const Job = () => {
         return pages;
     };
 
-    
     if (loading) {
         return (
             <div className="min-h-screen bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center p-4 font-sans text-white text-xl">
@@ -232,7 +218,6 @@ const Job = () => {
         );
     }
 
-
     if (jobs.length === 0 && !isFilterActive) {
         return (
             <div className="min-h-screen bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center p-4 font-sans text-white text-xl">
@@ -254,15 +239,15 @@ const Job = () => {
                         type="text"
                         placeholder="Filter by skill (e.g., React, Node.js)"
                         className="p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                        value={filterSkill} 
-                        onChange={handleSkillChange} 
+                        value={filterSkill}
+                        onChange={handleSkillChange}
                     />
                     <input
                         type="text"
                         placeholder="Filter by job title (e.g., Web Developer)"
                         className="p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                        value={filterTitle} 
-                        onChange={handleTitleChange} 
+                        value={filterTitle}
+                        onChange={handleTitleChange}
                     />
                     <div className="flex gap-2">
                         <button
@@ -271,7 +256,7 @@ const Job = () => {
                         >
                             <Search className="w-5 h-5 mr-2" /> Search
                         </button>
-                        {isFilterActive && ( 
+                        {isFilterActive && (
                             <button
                                 onClick={handleClearFilters}
                                 className="flex-1 flex items-center justify-center px-4 py-3 bg-gray-400 text-white font-semibold rounded-lg shadow-md hover:bg-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-300 focus:ring-offset-2 transition duration-200"
@@ -291,12 +276,13 @@ const Job = () => {
             )}
 
             {/* Job Listings Grid */}
-            {jobs.length > 0 && ( 
+            {jobs.length > 0 && (
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto mb-8">
                     {jobs.map((job) => (
                         <div
                             key={job._id}
-                            className="bg-white rounded-xl shadow-lg p-6 flex flex-col transform transition-all duration-300 hover:scale-[1.03] hover:shadow-2xl"
+                            // Added flex, flex-col, and h-full for consistent height
+                            className="bg-white rounded-xl shadow-lg p-6 flex flex-col transform transition-all duration-300 hover:scale-[1.03] hover:shadow-2xl h-full"
                         >
                             <h2 className="text-2xl font-bold text-gray-800 mb-2">Title:{job.title}</h2>
 
@@ -316,7 +302,7 @@ const Job = () => {
                             <div className="text-gray-600 flex items-center mb-4">
                                 <Calendar className="w-4 h-4 mr-2 text-blue-600" /> Posted on: {new Date(job.createdAt).toLocaleDateString()}
                             </div>
-                            <div className="flex items-center text-gray-600 text-sm mb-4">
+                            <div className="text-gray-600 flex items-center mb-4">
                                 <Calendar className="w-4 h-4 mr-2 text-red-500" /> Deadline: {job.deadline ? new Date(job.deadline).toLocaleDateString() : 'N/A'}
                             </div>
 
@@ -338,16 +324,17 @@ const Job = () => {
                                 </div>
                             )}
 
-                            <div className='flex flex-col md:flex-row justify-center items-center gap-4'>
+                            {/* This div will push itself to the bottom */}
+                            <div className='flex flex-col md:flex-row justify-center items-center gap-4 mt-auto'>
                                 <button
                                     onClick={() => handleApply(job._id)}
-                                    className="mt-auto flex items-center justify-center px-6 py-2 bg-indigo-600 text-white font-semibold rounded-lg shadow-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition duration-200 text-base group"
+                                    className="flex-1 flex items-center justify-center px-6 py-2 bg-indigo-600 text-white font-semibold rounded-lg shadow-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition duration-200 text-base group"
                                 >
                                     Apply Now
                                     <ArrowRight className="w-4 h-4 ml-2 transition-transform duration-200 group-hover:translate-x-1" />
                                 </button>
                                 <Link to='/details' state={job}
-                                    className="mt-auto flex items-center justify-center px-6 py-2 bg-indigo-600 text-white font-semibold rounded-lg shadow-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition duration-200 text-base group"
+                                    className="flex-1 flex items-center justify-center px-6 py-2 bg-indigo-600 text-white font-semibold rounded-lg shadow-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition duration-200 text-base group"
                                 >
                                     View Now
                                     <ArrowRight className="w-4 h-4 ml-2 transition-transform duration-200 group-hover:translate-x-1" />
@@ -359,7 +346,7 @@ const Job = () => {
             )}
 
             {/* Pagination Controls */}
-            {totalPages > 1 && jobs.length > 0 && ( // 
+            {totalPages > 1 && jobs.length > 0 && (
                 <div className="flex justify-center items-center space-x-2 mt-8 text-white">
                     <button
                         onClick={() => handlePageChange(currentPage - 1)}
