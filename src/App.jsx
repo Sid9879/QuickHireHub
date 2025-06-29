@@ -21,6 +21,7 @@ import ProtectedRoute from './Mycomponents/ProtectedRoute ';
 import ViewUserProfile from './Layout/ViewUserProfile';
 import ForgetPassword from './Pages/ForgetPassword';
 import ManageProjects from './Pages/ManageProjects ';
+import ChooseRole from './Pages/ChooseRole';
 
 
 function App() {
@@ -103,6 +104,11 @@ function App() {
       <ManageProjects/>
     </ProtectedRoute>
   }/>
+
+ <Route path="/choose-role" element={
+      <ChooseRole/>
+  }/>
+
 </Routes>
 
       <ToastContainer />
