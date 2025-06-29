@@ -281,7 +281,6 @@ const Job = () => {
                     {jobs.map((job) => (
                         <div
                             key={job._id}
-                            // Added flex, flex-col, and h-full for consistent height
                             className="bg-white rounded-xl shadow-lg p-6 flex flex-col transform transition-all duration-300 hover:scale-[1.03] hover:shadow-2xl h-full"
                         >
                             <h2 className="text-2xl font-bold text-gray-800 mb-2">Title:{job.title}</h2>
@@ -296,7 +295,8 @@ const Job = () => {
                                 <IndianRupee className="w-4 h-4 mr-2 text-green-600" /> Budget: INR {job.budget?.toLocaleString('en-IN')}
                             </p>
 
-                            <div className="text-gray-700 text-sm flex items-center mb-4 leading-relaxed line-clamp-3">
+                            {/* Added min-h-[4rem] to give some consistent minimum height for description */}
+                            <div className="text-gray-700 text-sm flex items-center mb-4 leading-relaxed line-clamp-3 min-h-[4rem]">
                                 <Clipboard className="w-4 h-4 mr-2 text-purple-500" /> {job.description.slice(0, 40)}...
                             </div>
                             <div className="text-gray-600 flex items-center mb-4">
@@ -324,17 +324,19 @@ const Job = () => {
                                 </div>
                             )}
 
-                            {/* This div will push itself to the bottom */}
-                            <div className='flex flex-col md:flex-row justify-center items-center gap-4 mt-auto'>
+                            {/* Refined button container classes */}
+                            <div className='flex flex-col md:flex-row justify-between items-center gap-4 mt-auto w-full'>
+                                {/* Added whitespace-nowrap and flex-grow for consistent sizing */}
                                 <button
                                     onClick={() => handleApply(job._id)}
-                                    className="flex-1 flex items-center justify-center px-6 py-2 bg-indigo-600 text-white font-semibold rounded-lg shadow-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition duration-200 text-base group"
+                                    className="flex-1 flex items-center justify-center px-6 py-2 bg-indigo-600 text-white font-semibold rounded-lg shadow-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition duration-200 text-base group whitespace-nowrap"
                                 >
                                     Apply Now
                                     <ArrowRight className="w-4 h-4 ml-2 transition-transform duration-200 group-hover:translate-x-1" />
                                 </button>
+                                {/* Added whitespace-nowrap and flex-grow for consistent sizing */}
                                 <Link to='/details' state={job}
-                                    className="flex-1 flex items-center justify-center px-6 py-2 bg-indigo-600 text-white font-semibold rounded-lg shadow-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition duration-200 text-base group"
+                                    className="flex-1 flex items-center justify-center px-6 py-2 bg-indigo-600 text-white font-semibold rounded-lg shadow-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition duration-200 text-base group whitespace-nowrap"
                                 >
                                     View Now
                                     <ArrowRight className="w-4 h-4 ml-2 transition-transform duration-200 group-hover:translate-x-1" />
