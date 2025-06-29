@@ -126,7 +126,8 @@ const Login = () => {
           <GoogleLogin
             onSuccess={async (credentialResponse) => {
               try {
-                const decoded = jwt_decode(credentialResponse.credential);
+               const decoded = jwtDecode(credentialResponse.credential);
+
                 const { data } = await axios.post(
                   "https://freelancing-backend-z0fy.onrender.com/api/auth/google-login",
                   {
