@@ -22,6 +22,7 @@ import ViewUserProfile from './Layout/ViewUserProfile';
 import ForgetPassword from './Pages/ForgetPassword';
 import ManageProjects from './Pages/ManageProjects ';
 import ChooseRole from './Pages/ChooseRole';
+import NotFoundPage from './Pages/NotFoundPage';
 
 
 function App() {
@@ -110,7 +111,7 @@ function App() {
         <ChooseRole />
         </ProtectedRoute>
   }/>
-
+<Route path="*" element={<NotFoundPage />} />
 </Routes>
 
       <ToastContainer />
