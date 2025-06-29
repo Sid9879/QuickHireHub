@@ -7,17 +7,17 @@ import { loginUser } from '../store/userSlice';
 const ChooseRole = () => {
   const navigate = useNavigate();
    const dispatch = useDispatch();
-  //  const getUserProfile = async () => {
-  //   try {
-  //     const response = await axios.get(`https://freelancing-backend-z0fy.onrender.com/api/auth/getUser`, {
-  //       withCredentials: true,
-  //     });
-  //     const user = response.data.user;
-  //     dispatch(loginUser(user));
-  //   } catch (error) {
-  //     console.error("Failed to get user profile:", error);
-  //   }
-  // };
+   const getUserProfile = async () => {
+    try {
+      const response = await axios.get(`https://freelancing-backend-z0fy.onrender.com/api/auth/getUser`, {
+        withCredentials: true,
+      });
+      const user = response.data.user;
+      dispatch(loginUser(user));
+    } catch (error) {
+      console.error("Failed to get user profile:", error);
+    }
+  };
 
  const handleSelectRole = async (role) => {
   try {
