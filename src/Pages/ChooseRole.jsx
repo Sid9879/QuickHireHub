@@ -1,20 +1,35 @@
-// src/Pages/ChooseRole.jsx
 import React from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { loginUser } from '../store/userSlice';
 
 const ChooseRole = () => {
   const navigate = useNavigate();
+   const dispatch = useDispatch();
+   const getUserProfile = async () => {
+    try {
+      const response = await axios.get(`https://freelancing-backend-z0fy.onrender.com/api/auth/getUser`, {
+        withCredentials: true,
+      });
+      const user = response.data.user;
+      dispatch(loginUser(user));
+    } catch (error) {
+      console.error("Failed to get user profile:", error);
+    }
+  };
 
   const handleSelectRole = async (role) => {
     try {
       await axios.post('https://freelancing-backend-z0fy.onrender.com/api/auth/set-role', { role }, { withCredentials: true });
+     await getUserProfile();
       navigate('/');
     } catch (err) {
       console.error('Failed to set role', err);
-      // Optionally, add user-facing error feedback here (e.g., a toast notification)
     }
   };
+
+
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100 p-4">
