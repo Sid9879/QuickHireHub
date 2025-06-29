@@ -7,27 +7,39 @@ import { loginUser } from '../store/userSlice';
 const ChooseRole = () => {
   const navigate = useNavigate();
    const dispatch = useDispatch();
-   const getUserProfile = async () => {
-    try {
-      const response = await axios.get(`https://freelancing-backend-z0fy.onrender.com/api/auth/getUser`, {
-        withCredentials: true,
-      });
-      const user = response.data.user;
-      dispatch(loginUser(user));
-    } catch (error) {
-      console.error("Failed to get user profile:", error);
-    }
-  };
+  //  const getUserProfile = async () => {
+  //   try {
+  //     const response = await axios.get(`https://freelancing-backend-z0fy.onrender.com/api/auth/getUser`, {
+  //       withCredentials: true,
+  //     });
+  //     const user = response.data.user;
+  //     dispatch(loginUser(user));
+  //   } catch (error) {
+  //     console.error("Failed to get user profile:", error);
+  //   }
+  // };
 
-  const handleSelectRole = async (role) => {
-    try {
-      await axios.post('https://freelancing-backend-z0fy.onrender.com/api/auth/set-role', { role }, { withCredentials: true });
-      await getUserProfile();
-      navigate('/');
-    } catch (err) {
-      console.error('Failed to set role', err);
-    }
-  };
+ const handleSelectRole = async (role) => {
+  try {
+    await axios.post(
+      'https://freelancing-backend-z0fy.onrender.com/api/auth/set-role',
+      { role },
+      { withCredentials: true }
+    );
+
+    const response = await axios.get(
+      'https://freelancing-backend-z0fy.onrender.com/api/auth/getUser',
+      { withCredentials: true }
+    );
+
+    const updatedUser = response.data.user;
+    dispatch(loginUser(updatedUser)); // this will include the new role
+    navigate('/');
+  } catch (err) {
+    console.error('Failed to set role', err);
+  }
+};
+
 
   useEffect(() => {
   getUserProfile().then((user) => {
