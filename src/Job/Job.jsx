@@ -139,7 +139,7 @@ const Job = () => {
         debounceTimeoutRef.current = setTimeout(() => {
             setDebouncedFilterSkill(value); 
             setCurrentPage(1); 
-        }, 1000); // 1s debounce
+        }, 1000);
     };
 
    

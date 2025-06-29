@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { loginUser } from '../store/userSlice';
+import { persistor } from '../store/store'; 
 
 const ChooseRole = () => {
   const navigate = useNavigate();
@@ -34,13 +35,10 @@ const ChooseRole = () => {
 
     const updatedUser = response.data.user;
     dispatch(loginUser(updatedUser));
-    const root = JSON.parse(localStorage.getItem('persist:root'));
-    if (root) {
-      root.user = JSON.stringify({ user: updatedUser, login: true });
-      localStorage.setItem('persist:root', JSON.stringify(root));
-    }
-
-    navigate('/');
+    persistor.flush().then(() => {
+      console.log('Redux state synced to localStorage');
+      navigate('/');
+    });
   } catch (err) {
     console.error('Failed to set role', err);
   }
