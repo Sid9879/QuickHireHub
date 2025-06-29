@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useSelector } from 'react-redux';
-import logo from '../assets/logo.png';
 import { Link } from 'react-router-dom';
 import { Rate } from 'antd';
 
@@ -53,7 +52,7 @@ const FreelancerDashboard = () => {
         {/* Header */}
         <header className="flex justify-between items-center border-b border-gray-300 pb-4 mb-6">
           <div className="text-2xl font-bold tracking-wide">
-            <img className='w-[100px] h-[100px] rounded-full' src={logo} alt="" />
+            <img className='w-[100px] h-[100px] rounded-full' src={userData.user?.profilePicture} alt="" />
           </div>
           <h1 className="text-xl font-semibold">Your Dashboard</h1>
         </header>
