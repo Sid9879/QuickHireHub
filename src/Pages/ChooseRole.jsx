@@ -8,7 +8,7 @@ import { persistor } from '../store/store';
 const ChooseRole = () => {
   const navigate = useNavigate();
   const userData = useSelector((state)=>state.user);
-  console.log(userData)
+
    const dispatch = useDispatch();
    const getUserProfile = async () => {
     try {
@@ -36,10 +36,8 @@ const ChooseRole = () => {
     );
 
     const updatedUser = response.data.user;
-    console.log(updatedUser)
     dispatch(loginUser(updatedUser));
     persistor.flush().then(() => {
-      console.log('Redux state synced to localStorage');
       navigate('/');
     });
   } catch (err) {
