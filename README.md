@@ -1,16 +1,12 @@
-# React + Vite
-
 # 💼 QuickHireHub – Freelancing Website
 
-QuickHireHub is a full-stack freelancing platform where users can register as **Clients** or **Freelancers**, post and apply for jobs, manage profiles, showcase completed projects, and build reputation through client ratings.
+QuickHireHub is a full-stack freelancing platform where users can register as Clients or Freelancers, post and apply for jobs, manage profiles, showcase completed projects, and build reputation through client ratings.
 
----
-
-## 🌐 Live Demo
+### 🌐 Live Demo
 
 👉 [https://quick-hire-hub.vercel.app/login](https://quick-hire-hub.vercel.app/login)
 
-## 📦 GitHub Repository
+### 📦 GitHub Repository
 
 🔗 [https://github.com/Sid9879/QuickHireHub](https://github.com/Sid9879/QuickHireHub)
 
@@ -19,69 +15,77 @@ QuickHireHub is a full-stack freelancing platform where users can register as **
 ## 🚀 Features
 
 ### 🔐 General
-- Secure JWT-based Authentication
-- **Forgot Password** – Users can request a password reset link via their registered email
-- Role-based Access (Freelancer / Client)
-- Dynamic Profile Management for both user roles
 
+* Secure JWT-based Authentication
+* Forgot Password – Users can request a password reset link via their registered email
+* Role-based Access (Freelancer / Client)
+* Dynamic Profile Management for both user roles
+* Google Authentication login
 
 ### 👨‍🎓 Freelancer Features
-- 📂 Apply to Jobs
-- 🧰 **Manage Projects**
-  - Add completed projects with GitHub/live links
-  - View, edit, and delete them anytime
-- 🌟 **Client Ratings**
-  - View feedback and ratings given by clients
-- 📄 **Public Profile**
-  - Display bio, skills, projects, and reviews
+
+* 📂 Apply to Jobs
+* 🧰 Manage Projects
+
+  * Add completed projects with GitHub/live links
+  * View, edit, and delete them anytime
+* 🌟 Client Ratings
+
+  * View feedback and ratings given by clients
+* 📄 Public Profile
+
+  * Display bio, skills, projects, and reviews
 
 ### 🧑‍💼 Client Features
-- 📝 Post Jobs
-- 📊 View List of Applicants
-- 🔍 **View Full Freelancer Profiles**
-- ✅ Approve or Reject Freelancers
-- 🌟 **Rate Freelancers** after job completion
+
+* 📝 Post Jobs
+* 📊 View List of Applicants
+* 🔍 View Full Freelancer Profiles
+* ✅ Approve or Reject Freelancers
+* 🌟 Rate Freelancers after job completion
 
 ---
 
 ## 🛠️ Tech Stack
 
 ### Frontend:
-- React.js
-- Redux Toolkit
-- React Router
-- Axios
-- Tailwind CSS
+
+* React.js (with Vite)
+* Redux Toolkit
+* React Router
+* Axios
+* Tailwind CSS
 
 ### Backend:
-- Node.js
-- Express.js
-- MongoDB with Mongoose
-- JWT Authentication
-- bcrypt.js
+
+* Node.js
+* Express.js
+* MongoDB with Mongoose
+* JWT Authentication
+* bcrypt.js
+* Nodemailer (Forgot Password)
+* SendGrid (Contact Form)
 
 ---
 
-📌 Upcoming Features
-🌐 Google Authentication
+## 📌 Upcoming Features
 
-💬 Real-time Chat System (WebSockets)
+* 💬 Real-time Chat System (WebSockets)
+* 📢 Notifications (job updates, messages)
+* 💳 Payment Integration (Stripe or Razorpay)
 
-📢 Notifications (job updates, messages)
+---
 
-💳 Payment Integration (Stripe or Razorpay)
+## 👨‍💻 Developer
 
+**Siddharth Singh**
+📧 Email: [singhsiddharth1438@gmail.com](mailto:singhsiddharth1438@gmail.com)
 
-👨‍💻 Developer
-Siddharth Singh
-
-
-📬 Contact
-Have feedback or want to contribute?
-📧 Email: singhsiddharth1438@gmail.com
+---
 
 ## 📁 Folder Structure
 
+```
 QuickHireHub/
 ├── public/
 │   ├── favicon.ico
@@ -133,6 +137,8 @@ QuickHireHub/
 ├── tailwind.config.js
 ├── vercel.json
 └── vite.config.js
+```
+
 
 
 Currently, two official plugins are available:
