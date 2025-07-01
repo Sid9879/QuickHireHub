@@ -12,9 +12,13 @@ const NotFoundPage = () => {
 
       <h1 className="text-8xl sm:text-9xl font-extrabold mb-4 drop-shadow-lg">404</h1>
 
+        <p className="text-xl sm:text-2xl mb-8 max-w-xl leading-relaxed">
+      Page Not Found
+      </p>
+
       <p className="text-xl sm:text-2xl mb-8 max-w-xl leading-relaxed">
-        Looks like the page you're looking for has ventured into uncharted territory.
-        It might have been moved or doesn't exist.
+       We couldn’t find the page you were looking for.
+It might have been moved, deleted, or maybe the link is broken.
       </p>
 
       <div className="flex flex-col sm:flex-row gap-4 mb-8">
@@ -39,7 +43,7 @@ const NotFoundPage = () => {
       </div>
 
       <p className="text-gray-200 text-sm italic">
-        "Perhaps you mistyped the address or followed an old link?"
+       "Maybe you typed the address wrong or followed an old link."
       </p>
     </div>
   );
